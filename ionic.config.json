@@ -1,0 +1,10 @@
+{
+  "name": "ionic3Demo",
+  "app_id": "",
+  "type": "ionic-angular",
+  "integrations": {},
+  "proxies": [{
+    "path": "/default",
+    "proxyUrl": "http://localhost:3000"
+  }]
+}

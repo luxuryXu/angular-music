@@ -1,0 +1,39 @@
+page-home {
+  .home-header{
+    width: 100%;
+    height: 100%;
+    display: flex;
+  }
+  .home-header .logo-wrap{
+    width: 3rem;
+    height: 3rem;
+    line-height: 3rem;
+  }
+  .home-header .logo-wrap .logo{
+    width: 100%;
+    height: 100%;
+    font-size: 3rem;
+    text-align: center;
+    line-height: 3rem;
+  }
+  .home-header .search-wrap{
+    flex-grow: 1;
+    background: #fdfdfd;
+    margin: 5px 10px;
+    border-radius: 3rem;
+    position: relative;
+  }
+  .search-icon{
+    position: absolute;
+    top: 50%;
+    left: 1.5rem;
+    transform: translateY(-50%);
+  }
+  .search-input {
+    margin-left: 3rem;
+    height: 100%;
+    width: calc(100% - 4rem);
+    font-size: 1.2rem;
+  }
+}
+
