@@ -154,6 +154,9 @@ TabsPage = __decorate([
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return HomePage; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__angular_http__ = __webpack_require__(149);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__ = __webpack_require__(240);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_rxjs_add_operator_toPromise__);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -165,21 +168,33 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 
 
+
+
 var HomePage = (function () {
-    function HomePage(navCtrl) {
+    function HomePage(navCtrl, http) {
         this.navCtrl = navCtrl;
+        this.http = http;
     }
     HomePage.prototype.ionViewDidLoad = function () {
+        this.http.get('/default/banner')
+            .toPromise()
+            .then(function (res) {
+            console.log(JSON.parse(res._body).banners);
+        })
+            .catch(function (err) {
+            console.log('获取banner失败' + err);
+        });
     };
     return HomePage;
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div>\n    <ion-slides>\n        <ion-slide>1</ion-slide>\n        <ion-slide>2</ion-slide>\n        <ion-slide>3</ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div>\n    <ion-slides>\n        <ion-slide>\n\n        </ion-slide>\n        <ion-slide>2</ion-slide>\n        <ion-slide>3</ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
+    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _b || Object])
 ], HomePage);
 
+var _a, _b;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
