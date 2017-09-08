@@ -22,18 +22,24 @@ page-home {
     margin: 5px 10px;
     border-radius: 3rem;
     position: relative;
+    overflow: hidden;
   }
   .search-icon{
     position: absolute;
     top: 50%;
     left: 1.5rem;
-    transform: translateY(-50%);
+    transform: translateY(-45%);
+    background: #fdfdfd;
   }
   .search-input {
+    appearance: none;
     margin-left: 3rem;
     height: 100%;
     width: calc(100% - 4rem);
     font-size: 1.2rem;
+    border: none;
+    outline: none;
+    vertical-align: middle;
   }
 }
 

@@ -83,7 +83,7 @@ var LoginPage = (function () {
 }());
 LoginPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-login',template:/*ion-inline-start:"/Users/gemii/project/ionic3Demo/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>登录</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item>\n    <ion-label fixed>账号</ion-label>\n    <ion-input type="text" placeholder="请输入账号" #username></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label fixed>密码</ion-label>\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n  </ion-item>\n  <ion-item no-lines>\n    <label item-right>记住密码</label>\n    <ion-toggle></ion-toggle>\n  </ion-item>\n\n  <div style="text-align: center; margin-left: 30px; margin-right: 30px;">\n    <button ion-button block color="danger" (click)="logIn(username, password)">\n      登录\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/ionic3Demo/src/pages/login/login.html"*/,
+        selector: 'page-login',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/login/login.html"*/'<!--\n  Generated template for the LoginPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>登录</ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content>\n  <ion-item>\n    <ion-label fixed>账号</ion-label>\n    <ion-input type="text" placeholder="请输入账号" #username></ion-input>\n  </ion-item>\n  <ion-item>\n    <ion-label fixed>密码</ion-label>\n    <ion-input type="password" placeholder="请输入密码" #password></ion-input>\n  </ion-item>\n  <ion-item no-lines>\n    <label item-right>记住密码</label>\n    <ion-toggle></ion-toggle>\n  </ion-item>\n\n  <div style="text-align: center; margin-left: 30px; margin-right: 30px;">\n    <button ion-button block color="danger" (click)="logIn(username, password)">\n      登录\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/login/login.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], LoginPage);
@@ -138,7 +138,7 @@ var TabsPage = (function () {
 }());
 TabsPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'tabs',template:/*ion-inline-start:"/Users/gemii/project/ionic3Demo/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab *ngFor="let tabRoot of tabRoots" [root]="tabRoot.root" tabTitle="{{tabRoot.tabTitle}}" tabIcon="{{tabRoot.tabIcon}}"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/gemii/project/ionic3Demo/src/pages/tabs/tabs.html"*/
+        selector: 'tabs',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/tabs/tabs.html"*/'<ion-tabs>\n  <ion-tab *ngFor="let tabRoot of tabRoots" [root]="tabRoot.root" tabTitle="{{tabRoot.tabTitle}}" tabIcon="{{tabRoot.tabIcon}}"></ion-tab>\n</ion-tabs>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/tabs/tabs.html"*/
     }),
     __metadata("design:paramtypes", [])
 ], TabsPage);
@@ -175,12 +175,11 @@ var HomePage = (function () {
 }());
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/ionic3Demo/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="search">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div>\n    <ion-slides>\n        <ion-slide>1</ion-slide>\n        <ion-slide>2</ion-slide>\n        <ion-slide>3</ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/ionic3Demo/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div>\n    <ion-slides>\n        <ion-slide>1</ion-slide>\n        <ion-slide>2</ion-slide>\n        <ion-slide>3</ion-slide>\n    </ion-slides>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
     }),
-    __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _a || Object])
+    __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
 ], HomePage);
 
-var _a;
 //# sourceMappingURL=home.js.map
 
 /***/ }),
@@ -221,7 +220,7 @@ var SettingPage = (function () {
 }());
 SettingPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-setting',template:/*ion-inline-start:"/Users/gemii/project/ionic3Demo/src/pages/setting/setting.html"*/'<!--\n  Generated template for the SettingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      更多\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="bg-color">\n  <ion-list class="top-list">\n    <button ion-item [navPush]="userInfoPage">\n      <ion-avatar item-left>\n        <img src="../../assets/icon/user.jpg"/>\n      </ion-avatar>\n      <h2>devilx</h2>\n      <p>账号：18600001111</p>\n    </button>\n  </ion-list>\n\n  <ion-list>\n    <ion-item>\n      控件1\n    </ion-item>\n    <button ion-item>\n      控件2\n    </button>\n    <button ion-item>\n      <ion-avatar item-left>\n        <img src="../../assets/icon/user.jpg"/>\n      </ion-avatar>\n      控件3\n    </button>\n  </ion-list>\n\n  <ion-list>\n    <button ion-item>\n      版本号\n      <span  item-end>V1.0</span>\n    </button>\n    <button ion-item>\n      关于\n    </button>\n  </ion-list>\n\n  <div style="text-align: center; margin-left: 30px; margin-right: 30px;margin-top: 30px;">\n    <button ion-button block (click)="logOut()">\n      退出登录\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/ionic3Demo/src/pages/setting/setting.html"*/,
+        selector: 'page-setting',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/setting/setting.html"*/'<!--\n  Generated template for the SettingPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n  <ion-navbar>\n    <ion-title>\n      更多\n    </ion-title>\n  </ion-navbar>\n</ion-header>\n\n<ion-content class="bg-color">\n  <ion-list class="top-list">\n    <button ion-item [navPush]="userInfoPage">\n      <ion-avatar item-left>\n        <img src="../../assets/icon/user.jpg"/>\n      </ion-avatar>\n      <h2>devilx</h2>\n      <p>账号：18600001111</p>\n    </button>\n  </ion-list>\n\n  <ion-list>\n    <ion-item>\n      控件1\n    </ion-item>\n    <button ion-item>\n      控件2\n    </button>\n    <button ion-item>\n      <ion-avatar item-left>\n        <img src="../../assets/icon/user.jpg"/>\n      </ion-avatar>\n      控件3\n    </button>\n  </ion-list>\n\n  <ion-list>\n    <button ion-item>\n      版本号\n      <span  item-end>V1.0</span>\n    </button>\n    <button ion-item>\n      关于\n    </button>\n  </ion-list>\n\n  <div style="text-align: center; margin-left: 30px; margin-right: 30px;margin-top: 30px;">\n    <button ion-button block (click)="logOut()">\n      退出登录\n    </button>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/setting/setting.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */]])
 ], SettingPage);
@@ -361,7 +360,7 @@ var MyApp = (function () {
     return MyApp;
 }());
 MyApp = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/gemii/project/ionic3Demo/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/gemii/project/ionic3Demo/src/app/app.html"*/
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/app/app.html"*/'<ion-nav [root]="rootPage"></ion-nav>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/app/app.html"*/
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
 ], MyApp);
@@ -424,7 +423,7 @@ var MyMusicPage = (function () {
 MyMusicPage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["d" /* IonicPage */])(),
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-my-music',template:/*ion-inline-start:"/Users/gemii/project/ionic3Demo/src/pages/my-music/my-music.html"*/'<!--\n  Generated template for the MyMusicPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title color="primary">myMusic</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/ionic3Demo/src/pages/my-music/my-music.html"*/,
+        selector: 'page-my-music',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/my-music/my-music.html"*/'<!--\n  Generated template for the MyMusicPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<ion-header>\n\n  <ion-navbar>\n    <ion-title color="primary">myMusic</ion-title>\n  </ion-navbar>\n\n</ion-header>\n\n\n<ion-content padding>\n\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/my-music/my-music.html"*/,
     }),
     __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* NavParams */], __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]])
 ], MyMusicPage);
