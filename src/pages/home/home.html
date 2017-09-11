@@ -14,12 +14,10 @@
 
 <ion-content>
   <div>
-    <ion-slides>
-        <ion-slide>
-
+    <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">
+        <ion-slide *ngFor="let banner of banners">
+          <div><img [src]="banner.pic" alt=""></div>
         </ion-slide>
-        <ion-slide>2</ion-slide>
-        <ion-slide>3</ion-slide>
     </ion-slides>
-  </div>
+  </div>1
 </ion-content>

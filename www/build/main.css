@@ -25264,6 +25264,14 @@ page-home .search-input {
   vertical-align: middle;
 }
 
+page-home .swiper-pagination-bullet {
+  background: #fdfdfd;
+}
+
+page-home .swiper-pagination-bullet-active {
+  background: #d23d39;
+}
+
 .toolbar-title-md {
   text-align: center;
 }

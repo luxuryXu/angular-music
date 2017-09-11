@@ -41,5 +41,12 @@ page-home {
     outline: none;
     vertical-align: middle;
   }
+  //pager
+  .swiper-pagination-bullet{
+    background: #fdfdfd;
+  }
+  .swiper-pagination-bullet-active{
+    background: #d23d39;
+  }
 }
 
