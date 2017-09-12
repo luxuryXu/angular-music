@@ -9,6 +9,7 @@ import { TabsPage } from '../pages/tabs/tabs';
 import { LoginPage } from '../pages/login/login';
 import { SettingPage } from '../pages/setting/setting';
 import { MyMusicPage } from '../pages/my-music/my-music';
+import { RecommendItem } from '../pages/recommend-item/recommend-item';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
@@ -20,7 +21,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     LoginPage,
     SettingPage,
-    MyMusicPage
+    MyMusicPage,
+    RecommendItem
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     TabsPage,
     LoginPage,
     SettingPage,
-    MyMusicPage
+    MyMusicPage,
+    RecommendItem
   ],
   providers: [
     StatusBar,

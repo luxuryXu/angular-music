@@ -174,22 +174,32 @@ var HomePage = (function () {
     function HomePage(navCtrl, http) {
         this.navCtrl = navCtrl;
         this.http = http;
+        this.activeText = '个性推荐';
     }
     HomePage.prototype.ionViewDidLoad = function () {
         var _this = this;
-        console.log('home ionDidLoad');
         this.http.get('/default/banner')
             .toPromise()
             .then(function (res) {
             _this.banners = JSON.parse(res['_body']).banners;
-            console.log(_this.banners);
         })
             .catch(function (err) {
             console.log('获取banner失败' + err);
         });
+        this.http.get('/default/top/playlist?limit=6&order=new')
+            .toPromise()
+            .then(function (res) {
+            _this.newLists = JSON.parse(res['_body']).playlists;
+            console.log(_this.newLists);
+        })
+            .catch(function (err) {
+            console.log('获取推荐歌单失败' + err);
+        });
     };
     HomePage.prototype.slideChanged = function () {
-        console.log('slideChanged');
+    };
+    HomePage.prototype.tabClick = function ($event) {
+        this.activeText = $event.target.text;
     };
     return HomePage;
 }());
@@ -199,7 +209,7 @@ __decorate([
 ], HomePage.prototype, "slide", void 0);
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div>\n    <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">\n        <ion-slide *ngFor="let banner of banners">\n          <div><img [src]="banner.pic" alt=""></div>\n        </ion-slide>\n    </ion-slides>\n  </div>1\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class="home-tabs" (click)="tabClick($event)">\n    <a [ngClass]="{\'active\': activeText==\'个性推荐\'}">个性推荐</a><a [ngClass]="{\'active\': activeText==\'歌单\'}">歌单</a><a [ngClass]="{\'active\': activeText==\'主播电台\'}">主播电台</a><a [ngClass]="{\'active\': activeText==\'排行榜\'}">排行榜</a>\n  </div>\n  <div class="scroll">\n    <div>\n      <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">\n        <ion-slide *ngFor="let banner of banners">\n          <div><img [src]="banner.pic" alt=""></div>\n        </ion-slide>\n      </ion-slides>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>最新歌单<ion-icon name="arrow-forward"></ion-icon></div>\n      <div class="flex">\n        <recommend-item *ngFor="let newList of newLists" [data]="newList"></recommend-item>\n      </div>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>独家放送<ion-icon name="arrow-forward"></ion-icon></div>\n      <div class="flex">\n        <recommend-item *ngFor="let newList of newLists" [data]="newList"></recommend-item>\n      </div>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _c || Object])
 ], HomePage);
@@ -283,14 +293,16 @@ Object(__WEBPACK_IMPORTED_MODULE_0__angular_platform_browser_dynamic__["a" /* pl
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__pages_login_login__ = __webpack_require__(194);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_8__pages_setting_setting__ = __webpack_require__(197);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_9__pages_my_music_my_music__ = __webpack_require__(99);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__ = __webpack_require__(190);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__ = __webpack_require__(193);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_10__pages_recommend_item_recommend_item__ = __webpack_require__(270);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__ = __webpack_require__(190);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__ = __webpack_require__(193);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
     else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
+
 
 
 
@@ -316,7 +328,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6__pages_tabs_tabs__["a" /* TabsPage */],
             __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */],
             __WEBPACK_IMPORTED_MODULE_8__pages_setting_setting__["a" /* SettingPage */],
-            __WEBPACK_IMPORTED_MODULE_9__pages_my_music_my_music__["a" /* MyMusicPage */]
+            __WEBPACK_IMPORTED_MODULE_9__pages_my_music_my_music__["a" /* MyMusicPage */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_recommend_item_recommend_item__["a" /* RecommendItem */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_1__angular_platform_browser__["a" /* BrowserModule */],
@@ -334,11 +347,12 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_6__pages_tabs_tabs__["a" /* TabsPage */],
             __WEBPACK_IMPORTED_MODULE_7__pages_login_login__["a" /* LoginPage */],
             __WEBPACK_IMPORTED_MODULE_8__pages_setting_setting__["a" /* SettingPage */],
-            __WEBPACK_IMPORTED_MODULE_9__pages_my_music_my_music__["a" /* MyMusicPage */]
+            __WEBPACK_IMPORTED_MODULE_9__pages_my_music_my_music__["a" /* MyMusicPage */],
+            __WEBPACK_IMPORTED_MODULE_10__pages_recommend_item_recommend_item__["a" /* RecommendItem */]
         ],
         providers: [
-            __WEBPACK_IMPORTED_MODULE_10__ionic_native_status_bar__["a" /* StatusBar */],
-            __WEBPACK_IMPORTED_MODULE_11__ionic_native_splash_screen__["a" /* SplashScreen */],
+            __WEBPACK_IMPORTED_MODULE_11__ionic_native_status_bar__["a" /* StatusBar */],
+            __WEBPACK_IMPORTED_MODULE_12__ionic_native_splash_screen__["a" /* SplashScreen */],
             { provide: __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* ErrorHandler */], useClass: __WEBPACK_IMPORTED_MODULE_2_ionic_angular__["b" /* IonicErrorHandler */] }
         ]
     })
@@ -391,6 +405,48 @@ MyApp = __decorate([
 ], MyApp);
 
 //# sourceMappingURL=app.component.js.map
+
+/***/ }),
+
+/***/ 270:
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return RecommendItem; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(0);
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+/**
+ * Generated class for the RecommendItemPage page.
+ *
+ * See http://ionicframework.com/docs/components/#navigation for more info
+ * on Ionic pages and navigation.
+ */
+var RecommendItem = (function () {
+    function RecommendItem() {
+    }
+    return RecommendItem;
+}());
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+    __metadata("design:type", Object)
+], RecommendItem.prototype, "data", void 0);
+RecommendItem = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
+        selector: 'recommend-item',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/recommend-item/recommend-item.html"*/'<!--\n  Generated template for the RecommendItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<div class="recommend-item">\n  <div class="cover-img">\n    <img [src]="data.coverImgUrl" alt="data.description" />\n    <span>{{data.name}}</span>\n  </div>\n</div>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/recommend-item/recommend-item.html"*/,
+    }),
+    __metadata("design:paramtypes", [])
+], RecommendItem);
+
+//# sourceMappingURL=recommend-item.js.map
 
 /***/ }),
 

@@ -13,11 +13,28 @@
 </ion-header>
 
 <ion-content>
-  <div>
-    <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">
+  <div class="home-tabs" (click)="tabClick($event)">
+    <a [ngClass]="{'active': activeText=='个性推荐'}">个性推荐</a><a [ngClass]="{'active': activeText=='歌单'}">歌单</a><a [ngClass]="{'active': activeText=='主播电台'}">主播电台</a><a [ngClass]="{'active': activeText=='排行榜'}">排行榜</a>
+  </div>
+  <div class="scroll">
+    <div>
+      <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">
         <ion-slide *ngFor="let banner of banners">
           <div><img [src]="banner.pic" alt=""></div>
         </ion-slide>
-    </ion-slides>
-  </div>1
+      </ion-slides>
+    </div>
+    <div class="recommends">
+      <div class="recommend-title"><div></div>最新歌单<ion-icon name="arrow-forward"></ion-icon></div>
+      <div class="flex">
+        <recommend-item *ngFor="let newList of newLists" [data]="newList"></recommend-item>
+      </div>
+    </div>
+    <div class="recommends">
+      <div class="recommend-title"><div></div>独家放送<ion-icon name="arrow-forward"></ion-icon></div>
+      <div class="flex">
+        <recommend-item *ngFor="let newList of newLists" [data]="newList"></recommend-item>
+      </div>
+    </div>
+  </div>
 </ion-content>
