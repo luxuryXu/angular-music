@@ -4,6 +4,7 @@ import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
 import { HttpModule } from '@angular/http';
 import { DirectivesModule } from '../directives/directives.module';
 import { MyApp } from './app.component';
+import { RouterModule, Routes } from '@angular/router';
 
 import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
@@ -14,6 +15,21 @@ import { RecommendItem } from '../pages/recommend-item/recommend-item';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+
+const routes : Routes = [
+  {
+    path: 'home',
+    component: HomePage
+  },
+  {
+    path: 'setting',
+    component: SettingPage
+  },
+  {
+    path: 'my-music',
+    component: MyMusicPage
+  }
+];
 
 @NgModule({
   declarations: [
@@ -29,7 +45,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     BrowserModule,
     HttpModule,
     DirectivesModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    RouterModule.forRoot(routes)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

@@ -24,7 +24,7 @@ var MyMusicPageModule = (function () {
     return MyMusicPageModule;
 }());
 MyMusicPageModule = __decorate([
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["L" /* NgModule */])({
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["M" /* NgModule */])({
         declarations: [
             __WEBPACK_IMPORTED_MODULE_2__my_music__["a" /* MyMusicPage */],
         ],
