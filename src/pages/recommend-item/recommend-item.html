@@ -11,7 +11,11 @@
     <span class="artistName" *ngIf="artistName">{{artistName}}</span>
   </div>
   <div class="info" *ngIf="trackCount">
-    <ion-icon name="ios-musical-notes-outline"></ion-icon>
+    <ion-icon name="ios-headset-outline"></ion-icon>
     {{trackCount}}万
+  </div>
+  <div class="info" *ngIf="playCount">
+    <ion-icon name="ios-videocam-outline"></ion-icon>
+    {{playCount}}
   </div>
 </div>

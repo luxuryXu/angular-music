@@ -199,7 +199,6 @@ var HomePage = (function () {
             .toPromise()
             .then(function (res) {
             _this.newLists = JSON.parse(res['_body']).playlists;
-            console.log(_this.newLists);
         })
             .catch(function (err) {
             console.log('获取推荐歌单失败' + err);
@@ -216,10 +215,18 @@ var HomePage = (function () {
             .toPromise()
             .then(function (res) {
             _this.recommendMVs = JSON.parse(res['_body']).result;
-            // console.log(this.recommendMVs);
         })
             .catch(function (err) {
             console.log('获取推荐MV失败' + err);
+        });
+        this.http.get('/default/personalized/djprogram')
+            .toPromise()
+            .then(function (res) {
+            _this.djprograms = JSON.parse(res['_body']).result;
+            console.log(_this.djprograms);
+        })
+            .catch(function (err) {
+            console.log('获取推荐电台失败' + err);
         });
     };
     HomePage.prototype.slideChanged = function () {
@@ -235,7 +242,7 @@ __decorate([
 ], HomePage.prototype, "slide", void 0);
 HomePage = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class="home-tabs" (click)="tabClick($event)">\n    <a [ngClass]="{\'active\': activeText==\'个性推荐\'}">个性推荐</a><a [ngClass]="{\'active\': activeText==\'歌单\'}">歌单</a><a [ngClass]="{\'active\': activeText==\'主播电台\'}">主播电台</a><a [ngClass]="{\'active\': activeText==\'排行榜\'}">排行榜</a>\n  </div>\n  <div class="scroll">\n    <div>\n      <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">\n        <ion-slide *ngFor="let banner of banners">\n          <div><img [src]="banner.pic" alt=""></div>\n        </ion-slide>\n      </ion-slides>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>最新歌单</div>\n      <div class="flex">\n        <recommend-item [size]="smallSize" *ngFor="let newList of newLists" [coverImgUrl]="newList.coverImgUrl" [name]="newList.name" [trackCount]="newList.trackCount"></recommend-item>\n      </div>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>独家放送</div>\n      <div class="flex" *ngIf="privateContents">\n        <!--<recommend-item *ngFor="let privateContent of privateContents" [coverImgUrl]="privateContent.picUrl" [name]="privateContent.name"></recommend-item>-->\n            <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[0].picUrl" [name]="privateContents[0].name"></recommend-item>\n            <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[1].picUrl" [name]="privateContents[1].name"></recommend-item>\n            <recommend-item [size]="largeSize" [coverImgUrl]="privateContents[2].picUrl" [name]="privateContents[2].name"></recommend-item>\n      </div>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>推荐MV</div>\n      <div class="flex">\n        <recommend-item [size]="middleSize" *ngFor="let recommendMV of recommendMVs" [coverImgUrl]="recommendMV.picUrl" [name]="recommendMV.name" [artistName]="recommendMV.artistName"></recommend-item>\n      </div>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
+        selector: 'page-home',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/'<ion-header>\n  <ion-toolbar color="danger">\n    <div class="home-header">\n      <div class="logo-wrap">\n        <ion-icon name="logo-octocat" class="logo" color="light"></ion-icon>\n      </div>\n      <div class="search-wrap" color="light">\n        <ion-icon name="search" class="search-icon" color="dark"></ion-icon>\n        <input type="text" class="search-input" placeholder="搜索音乐、视频、歌词、电台">\n      </div>\n    </div>\n  </ion-toolbar>\n</ion-header>\n\n<ion-content>\n  <div class="home-tabs" (click)="tabClick($event)">\n    <a [ngClass]="{\'active\': activeText==\'个性推荐\'}">个性推荐</a><a [ngClass]="{\'active\': activeText==\'歌单\'}">歌单</a><a [ngClass]="{\'active\': activeText==\'主播电台\'}">主播电台</a><a [ngClass]="{\'active\': activeText==\'排行榜\'}">排行榜</a>\n  </div>\n  <div class="scroll">\n    <div>\n      <ion-slides pager="true" loop="true" autoplay="4000" autoplayDisableOnInteraction="false" *ngIf="banners&&banners.length > 1" (ionSlideDidChange)="slideChanged()">\n        <ion-slide *ngFor="let banner of banners">\n          <div><img [src]="banner.pic" alt=""></div>\n        </ion-slide>\n      </ion-slides>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>最新歌单</div>\n      <div class="flex">\n        <recommend-item [size]="smallSize" *ngFor="let newList of newLists" [coverImgUrl]="newList.coverImgUrl" [name]="newList.name" [trackCount]="newList.trackCount"></recommend-item>\n      </div>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>独家放送</div>\n      <div class="flex" *ngIf="privateContents">\n        <!--<recommend-item *ngFor="let privateContent of privateContents" [coverImgUrl]="privateContent.picUrl" [name]="privateContent.name"></recommend-item>-->\n            <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[0].picUrl" [name]="privateContents[0].name"></recommend-item>\n            <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[1].picUrl" [name]="privateContents[1].name"></recommend-item>\n            <recommend-item [size]="largeSize" [coverImgUrl]="privateContents[2].picUrl" [name]="privateContents[2].name"></recommend-item>\n      </div>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>推荐MV</div>\n      <div class="flex">\n        <recommend-item [size]="middleSize" *ngFor="let recommendMV of recommendMVs" [coverImgUrl]="recommendMV.picUrl" [name]="recommendMV.name" [artistName]="recommendMV.artistName" [playCount]="recommendMV.playCount"></recommend-item>\n      </div>\n    </div>\n    <div class="recommends">\n      <div class="recommend-title"><div></div>推荐电台</div>\n      <div class="flex">\n        <recommend-item [size]="smallSize" *ngFor="let djprogram of djprograms" [coverImgUrl]="djprogram.picUrl" [name]="djprogram.name"></recommend-item>\n      </div>\n    </div>\n  </div>\n</ion-content>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/home/home.html"*/
     }),
     __metadata("design:paramtypes", [typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_http__["a" /* Http */]) === "function" && _c || Object])
 ], HomePage);
@@ -400,7 +407,7 @@ AppModule = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(28);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__ = __webpack_require__(190);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__ = __webpack_require__(193);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_home_home__ = __webpack_require__(196);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_login_login__ = __webpack_require__(194);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -417,7 +424,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 
 var MyApp = (function () {
     function MyApp(platform, statusBar, splashScreen) {
-        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_home_home__["a" /* HomePage */];
+        this.rootPage = __WEBPACK_IMPORTED_MODULE_4__pages_login_login__["a" /* LoginPage */];
         platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
@@ -481,9 +488,13 @@ __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
     __metadata("design:type", Number)
 ], RecommendItem.prototype, "trackCount", void 0);
+__decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["E" /* Input */])(),
+    __metadata("design:type", Number)
+], RecommendItem.prototype, "playCount", void 0);
 RecommendItem = __decorate([
     Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
-        selector: 'recommend-item',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/recommend-item/recommend-item.html"*/'<!--\n  Generated template for the RecommendItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<div class="recommend-item">\n  <div class="cover-img">\n    <img [src]="coverImgUrl" alt="data.description" />\n    <span>{{name}}</span>\n    <span class="artistName" *ngIf="artistName">{{artistName}}</span>\n  </div>\n  <div class="info" *ngIf="trackCount">\n    <ion-icon name="ios-musical-notes-outline"></ion-icon>\n    {{trackCount}}万\n  </div>\n</div>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/recommend-item/recommend-item.html"*/,
+        selector: 'recommend-item',template:/*ion-inline-start:"/Users/gemii/project/angular-music/src/pages/recommend-item/recommend-item.html"*/'<!--\n  Generated template for the RecommendItemPage page.\n\n  See http://ionicframework.com/docs/components/#navigation for more info on\n  Ionic pages and navigation.\n-->\n<div class="recommend-item">\n  <div class="cover-img">\n    <img [src]="coverImgUrl" alt="data.description" />\n    <span>{{name}}</span>\n    <span class="artistName" *ngIf="artistName">{{artistName}}</span>\n  </div>\n  <div class="info" *ngIf="trackCount">\n    <ion-icon name="ios-headset-outline"></ion-icon>\n    {{trackCount}}万\n  </div>\n  <div class="info" *ngIf="playCount">\n    <ion-icon name="ios-videocam-outline"></ion-icon>\n    {{playCount}}\n  </div>\n</div>\n'/*ion-inline-end:"/Users/gemii/project/angular-music/src/pages/recommend-item/recommend-item.html"*/,
     }),
     __metadata("design:paramtypes", [])
 ], RecommendItem);

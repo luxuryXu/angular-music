@@ -16,6 +16,7 @@ export class RecommendItem {
   @Input() name: String;
   @Input() artistName: String;
   @Input() trackCount: number;
+  @Input() playCount: number;
   constructor() {
 
   }

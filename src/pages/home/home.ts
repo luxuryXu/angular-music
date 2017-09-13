@@ -14,6 +14,7 @@ export class HomePage {
   newLists: Object[];
   privateContents: Object[];
   recommendMVs: Object[];
+  djprograms: Object[];
   smallSize: Object;
   middleSize: Object;
   largeSize: Object;
@@ -45,7 +46,6 @@ export class HomePage {
           .toPromise()
           .then(res => {
               this.newLists = JSON.parse(res['_body']).playlists;
-              console.log(this.newLists);
           })
           .catch(err => {
               console.log('获取推荐歌单失败' + err);
@@ -62,10 +62,18 @@ export class HomePage {
           .toPromise()
           .then(res => {
               this.recommendMVs = JSON.parse(res['_body']).result;
-              // console.log(this.recommendMVs);
           })
           .catch(err => {
               console.log('获取推荐MV失败' + err);
+          })
+      this.http.get('/default/personalized/djprogram')
+          .toPromise()
+          .then(res => {
+              this.djprograms = JSON.parse(res['_body']).result;
+              console.log(this.djprograms);
+          })
+          .catch(err => {
+              console.log('获取推荐电台失败' + err);
           })
 
 

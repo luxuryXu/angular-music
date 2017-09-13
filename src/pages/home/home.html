@@ -42,7 +42,13 @@
     <div class="recommends">
       <div class="recommend-title"><div></div>推荐MV</div>
       <div class="flex">
-        <recommend-item [size]="middleSize" *ngFor="let recommendMV of recommendMVs" [coverImgUrl]="recommendMV.picUrl" [name]="recommendMV.name" [artistName]="recommendMV.artistName"></recommend-item>
+        <recommend-item [size]="middleSize" *ngFor="let recommendMV of recommendMVs" [coverImgUrl]="recommendMV.picUrl" [name]="recommendMV.name" [artistName]="recommendMV.artistName" [playCount]="recommendMV.playCount"></recommend-item>
+      </div>
+    </div>
+    <div class="recommends">
+      <div class="recommend-title"><div></div>推荐电台</div>
+      <div class="flex">
+        <recommend-item [size]="smallSize" *ngFor="let djprogram of djprograms" [coverImgUrl]="djprogram.picUrl" [name]="djprogram.name"></recommend-item>
       </div>
     </div>
   </div>
