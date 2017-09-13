@@ -25350,14 +25350,12 @@ page-home .recommend-title ion-icon {
 
 recommend-item .recommend-item {
   margin-bottom: 8px;
-}
-
-recommend-item .recommend-item .cover-img {
-  width: 100%;
+  position: relative;
 }
 
 recommend-item .recommend-item .cover-img {
   display: block;
+  width: 100%;
 }
 
 recommend-item .recommend-item .cover-img span {
@@ -25371,6 +25369,20 @@ recommend-item .recommend-item .cover-img span {
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
   overflow: hidden;
+}
+
+recommend-item .recommend-item span.artistName {
+  color: #666;
+  font-size: .8rem;
+}
+
+recommend-item .recommend-item .info {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 2px 5px;
+  font-size: .8rem;
+  color: #fdfdfd;
 }
 
 page-setting .toolbar-title-md {

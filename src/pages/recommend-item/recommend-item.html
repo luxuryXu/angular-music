@@ -8,5 +8,10 @@
   <div class="cover-img">
     <img [src]="coverImgUrl" alt="data.description" />
     <span>{{name}}</span>
+    <span class="artistName" *ngIf="artistName">{{artistName}}</span>
+  </div>
+  <div class="info" *ngIf="trackCount">
+    <ion-icon name="ios-musical-notes-outline"></ion-icon>
+    {{trackCount}}万
   </div>
 </div>

@@ -14,6 +14,8 @@ import { Component, Input } from '@angular/core';
 export class RecommendItem {
   @Input() coverImgUrl: String;
   @Input() name: String;
+  @Input() artistName: String;
+  @Input() trackCount: number;
   constructor() {
 
   }

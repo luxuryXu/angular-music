@@ -27,7 +27,7 @@
     <div class="recommends">
       <div class="recommend-title"><div></div>最新歌单</div>
       <div class="flex">
-        <recommend-item [size]="smallSize" *ngFor="let newList of newLists" [coverImgUrl]="newList.coverImgUrl" [name]="newList.name"></recommend-item>
+        <recommend-item [size]="smallSize" *ngFor="let newList of newLists" [coverImgUrl]="newList.coverImgUrl" [name]="newList.name" [trackCount]="newList.trackCount"></recommend-item>
       </div>
     </div>
     <div class="recommends">
@@ -37,6 +37,12 @@
             <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[0].picUrl" [name]="privateContents[0].name"></recommend-item>
             <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[1].picUrl" [name]="privateContents[1].name"></recommend-item>
             <recommend-item [size]="largeSize" [coverImgUrl]="privateContents[2].picUrl" [name]="privateContents[2].name"></recommend-item>
+      </div>
+    </div>
+    <div class="recommends">
+      <div class="recommend-title"><div></div>推荐MV</div>
+      <div class="flex">
+        <recommend-item [size]="middleSize" *ngFor="let recommendMV of recommendMVs" [coverImgUrl]="recommendMV.picUrl" [name]="recommendMV.name" [artistName]="recommendMV.artistName"></recommend-item>
       </div>
     </div>
   </div>

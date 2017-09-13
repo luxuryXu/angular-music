@@ -13,6 +13,7 @@ export class HomePage {
   activeText: String;
   newLists: Object[];
   privateContents: Object[];
+  recommendMVs: Object[];
   smallSize: Object;
   middleSize: Object;
   largeSize: Object;
@@ -44,6 +45,7 @@ export class HomePage {
           .toPromise()
           .then(res => {
               this.newLists = JSON.parse(res['_body']).playlists;
+              console.log(this.newLists);
           })
           .catch(err => {
               console.log('获取推荐歌单失败' + err);
@@ -56,6 +58,16 @@ export class HomePage {
           .catch(err => {
               console.log('获取独家放送失败' + err);
           })
+      this.http.get('/default/personalized/mv')
+          .toPromise()
+          .then(res => {
+              this.recommendMVs = JSON.parse(res['_body']).result;
+              // console.log(this.recommendMVs);
+          })
+          .catch(err => {
+              console.log('获取推荐MV失败' + err);
+          })
+
 
   }
 

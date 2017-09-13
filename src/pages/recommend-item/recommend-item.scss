@@ -1,15 +1,12 @@
 recommend-item {
   .recommend-item{
-    //width: 33vw;
     margin-bottom: 8px;
-  }
-
-  .recommend-item .cover-img{
-    width: 100%;
+    position: relative;
   }
 
   .recommend-item .cover-img{
     display: block;
+    width: 100%;
   }
 
   .recommend-item .cover-img span{
@@ -24,4 +21,18 @@ recommend-item {
     -webkit-line-clamp: 2;
     overflow: hidden;
   }
+  .recommend-item span.artistName{
+    color: #666;
+    font-size: .8rem;
+  }
+
+  .recommend-item .info{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding:2px 5px;
+    font-size: .8rem;
+    color: #fdfdfd;
+  }
+
 }
