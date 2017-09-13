@@ -25,13 +25,13 @@
       </ion-slides>
     </div>
     <div class="recommends">
-      <div class="recommend-title"><div></div>最新歌单<ion-icon name="arrow-forward"></ion-icon></div>
+      <div class="recommend-title"><div></div>最新歌单</div>
       <div class="flex">
         <recommend-item [size]="smallSize" *ngFor="let newList of newLists" [coverImgUrl]="newList.coverImgUrl" [name]="newList.name"></recommend-item>
       </div>
     </div>
     <div class="recommends">
-      <div class="recommend-title"><div></div>独家放送<ion-icon name="arrow-forward"></ion-icon></div>
+      <div class="recommend-title"><div></div>独家放送</div>
       <div class="flex" *ngIf="privateContents">
         <!--<recommend-item *ngFor="let privateContent of privateContents" [coverImgUrl]="privateContent.picUrl" [name]="privateContent.name"></recommend-item>-->
             <recommend-item [size]="middleSize" [coverImgUrl]="privateContents[0].picUrl" [name]="privateContents[0].name"></recommend-item>
