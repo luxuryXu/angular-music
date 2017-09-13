@@ -12,7 +12,8 @@ import { Component, Input } from '@angular/core';
   templateUrl: 'recommend-item.html',
 })
 export class RecommendItem {
-  @Input() data: Object;
+  @Input() coverImgUrl: String;
+  @Input() name: String;
   constructor() {
 
   }
