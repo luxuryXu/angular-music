@@ -25203,7 +25203,8 @@ ion-navbar.toolbar {
   background: #d23d39;
 }
 
-.toolbar-title-md, .toolbar-title-ios {
+.toolbar-title-md, .toolbar-title-ios,
+.bar-button-default-ios, .bar-button-default.bar-button-ios-default, .bar-button-clear-ios-default {
   color: #fdfdfd;
 }
 

@@ -2,6 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import {NavController, Slides} from 'ionic-angular';
 import { Http } from "@angular/http";
 import 'rxjs/add/operator/toPromise';
+import { LoginPage } from '../login/login';
 
 @Component({
   selector: 'page-home',
@@ -18,9 +19,11 @@ export class HomePage {
   smallSize: Object;
   middleSize: Object;
   largeSize: Object;
+  loginPage: any;
   @ViewChild(Slides) slide: Slides;
 
   constructor(public navCtrl: NavController, private http: Http) {
+      this.loginPage = LoginPage;
       this.activeText = '个性推荐';
       this.smallSize = {
           width: 33
